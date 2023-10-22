@@ -1,0 +1,285 @@
+# assignment-
+{
+ "cells": [
+  {
+   "cell_type": "code",
+   "execution_count": 5,
+   "id": "b33574b7-7130-4ae8-8daf-f97e4ec6827a",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "def odd_numbers(n): \n",
+    "\tl = []\n",
+    "\tfor i in range(1, n + 1): \n",
+    "\t\tif i % 2 != 0: \n",
+    "\t\t\tl.append(i) \n",
+    "\treturn l"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 6,
+   "id": "3a51d29a-e3c3-4c4a-a30d-12f4d5fa1e0e",
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "[1, 3, 5, 7, 9, 11, 13, 15, 17, 19, 21, 23, 25]"
+      ]
+     },
+     "execution_count": 6,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "odd_numbers (25)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 7,
+   "id": "7e7daf2b-fd0f-4577-8a09-cece573b5ac3",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "def print_args(*args):\n",
+    "  for arg in args:\n",
+    "    print(arg)\n"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 8,
+   "id": "373ad4fb-ac0d-4b01-812b-b70bbd2a0680",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "1\n",
+      "2\n",
+      "3\n",
+      "4\n",
+      "5\n"
+     ]
+    }
+   ],
+   "source": [
+    "print_args(1, 2, 3, 4, 5)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 9,
+   "id": "f20d60a9-f0ce-4043-af23-77d2d611de9c",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "def print_kwargs(**kwargs):\n",
+    "  for key, value in kwargs.items():\n",
+    "    print(f\"{key}: {value}\")"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 10,
+   "id": "8a8815dd-1ca8-42fa-a3ae-9de20e14af28",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "name: Alice\n",
+      "age: 25\n",
+      "occupation: Software Engineer\n"
+     ]
+    }
+   ],
+   "source": [
+    "print_kwargs(name=\"Alice\", age=25, occupation=\"Software Engineer\")"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 11,
+   "id": "45cf726b-c08f-4b78-b726-5a3333cc400a",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "2\n",
+      "4\n",
+      "6\n",
+      "8\n",
+      "10\n"
+     ]
+    }
+   ],
+   "source": [
+    "list1 = [2, 4, 6, 8, 10, 12, 14, 16, 18, 20]\n",
+    "\n",
+    "# Initialize the iterator object.\n",
+    "iterator = iter(list1)\n",
+    "\n",
+    "# Print the first five elements of the list.\n",
+    "for i in range(5):\n",
+    "  print(next(iterator))\n"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 12,
+   "id": "2f4d74c3-351d-4933-856a-8bf1107ff8d8",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "2\n",
+      "4\n",
+      "6\n",
+      "8\n",
+      "10\n",
+      "12\n",
+      "14\n",
+      "16\n",
+      "18\n",
+      "20\n"
+     ]
+    }
+   ],
+   "source": [
+    "list1 = [2, 4, 6, 8, 10, 12, 14, 16, 18, 20]\n",
+    "\n",
+    "# Initialize the iterator object.\n",
+    "iterator = iter(list1)\n",
+    "\n",
+    "# Iterate over the list using a for loop.\n",
+    "for element in iterator:\n",
+    "  print(element)\n"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 13,
+   "id": "8385ea67-d064-465b-975b-b7b81e9e2f0a",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "0\n",
+      "1\n",
+      "1\n",
+      "2\n",
+      "3\n",
+      "5\n",
+      "8\n",
+      "13\n",
+      "21\n",
+      "34\n",
+      "55\n",
+      "89\n"
+     ]
+    }
+   ],
+   "source": [
+    "def fibonacci():\n",
+    "  \"\"\"This function generates the Fibonacci sequence.\"\"\"\n",
+    "  a = 0\n",
+    "  b = 1\n",
+    "  while True:\n",
+    "    yield a\n",
+    "    a, b = b, a + b\n",
+    "\n",
+    "# Example usage:\n",
+    "for number in fibonacci():\n",
+    "  if number > 100:\n",
+    "    break\n",
+    "  print(number)\n"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 14,
+   "id": "a0b2fcf2-ddc1-46a2-a0c7-8ce3a7164e0d",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "def prime_numbers():\n",
+    "  yield 2\n",
+    "  for n in range(3, 1000):\n",
+    "    for i in range(2, int(n**0.5) + 1):\n",
+    "      if (n % i == 0):\n",
+    "        break\n",
+    "    else:\n",
+    "      yield n\n"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 15,
+   "id": "96c7d483-7874-4fe1-95cd-7bce31934b7c",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "2\n",
+      "3\n",
+      "5\n",
+      "7\n",
+      "11\n",
+      "13\n",
+      "17\n",
+      "19\n"
+     ]
+    }
+   ],
+   "source": [
+    "for number in prime_numbers():\n",
+    "  if number > 20:\n",
+    "    break\n",
+    "  print(number)\n"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "id": "ba90adf2-3dbb-412c-8cc5-1bf4d86eb64d",
+   "metadata": {},
+   "outputs": [],
+   "source": []
+  }
+ ],
+ "metadata": {
+  "kernelspec": {
+   "display_name": "Python 3 (ipykernel)",
+   "language": "python",
+   "name": "python3"
+  },
+  "language_info": {
+   "codemirror_mode": {
+    "name": "ipython",
+    "version": 3
+   },
+   "file_extension": ".py",
+   "mimetype": "text/x-python",
+   "name": "python",
+   "nbconvert_exporter": "python",
+   "pygments_lexer": "ipython3",
+   "version": "3.10.8"
+  }
+ },
+ "nbformat": 4,
+ "nbformat_minor": 5
+}
